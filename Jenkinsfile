@@ -20,7 +20,7 @@ pipeline {
                 script {
                     bat 'docker build -t csi403-app-image .'
 
-                    bat 'docker run -d --name csi-container -p 54100:3000 csi402-app-image:latest'
+                    bat 'docker run -d --name csi-container -p 54100:3000 csi403-app-image:latest'
                 }
             }
         }
