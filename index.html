@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGMA SHOP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="shop-header">
+            <h1>SIGMA SHOP</h1>
+            <p>ร้านค้าออนไลน์ที่คุณไว้วางใจ</p>
+        </header>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="/photo/01.jpg" alt="น้ำยาล้างห้องน้ำ" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">น้ำยาล้างห้องน้ำ</h3>
+                    <p class="product-price">40 บาท</p>
+                    <input type="number" id="qtyA" value="0" min="0">
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="/photo/02.jpg" alt="ผงซักฟอก" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">ผงซักฟอก</h3>
+                    <p class="product-price">25 บาท</p>
+                    <input type="number" id="qtyB" value="0" min="0">
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="/photo/03.jpg" alt="น้ำยาล้างจาน" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">น้ำยาล้างจาน</h3>
+                    <p class="product-price">20 บาท</p>
+                    <input type="number" id="qtyC" value="0" min="0">
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="/photo/04.avif" alt="สบู่" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">สบู่</h3>
+                    <p class="product-price">10 บาท</p>
+                    <input type="number" id="qtyD" value="0" min="0">
+                </div>
+            </div>
+        </div>
+
+        <div class="calculate-section">
+            <button onclick="calculateTotal()">คำนวณราคาสินค้า</button>
+            <div class="total-price">
+                ราคาสินค้าทั้งหมด: <span id="totalPrice">0</span> THB
+            </div>
+        </div>
+    </div>
+    <div>
+        <h4>กิตติพัฒน์ เปรมจิตร์ 65054917</h4>
+    </div>
+
+    <script>
+        function calculateTotal() {
+            const qtyA = parseInt(document.getElementById('qtyA').value) || 0;
+            const qtyB = parseInt(document.getElementById('qtyB').value) || 0;
+            const qtyC = parseInt(document.getElementById('qtyC').value) || 0;
+            const qtyD = parseInt(document.getElementById('qtyD').value) || 0;
+
+            const priceA = 40;
+            const priceB = 25;
+            const priceC = 20;
+            const priceD = 10;
+
+            const total = (qtyA * priceA) + (qtyB * priceB) + (qtyC * priceC) + (qtyD * priceD);
+
+            document.getElementById('totalPrice').textContent = total;
+        }
+    </script>
+</body>
+</html>
