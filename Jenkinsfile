@@ -10,7 +10,7 @@ pipeline {
                     branches: [[name: '*/main']], // ระบุ main branch
                     userRemoteConfigs: [[
                         credentialsId: 'Lyz11111', // ระบุ credentials ID ของคุณ
-                        url: 'https://github.com/lightz1890/CSI402-Fornend-NextJs.git/' // ระบุ URL repository ของคุณ
+                        url: 'https://github.com/lightz1890/CSI403/' // ระบุ URL repository ของคุณ
                     ]]
                 ])
             }
