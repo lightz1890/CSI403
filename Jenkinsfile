@@ -2,41 +2,26 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Checkout Code') {
             steps {
-                echo "Clone Code the project From Git"
                 checkout([
                     $class: 'GitSCM',
-                    branches: [[name: '*/main']], // ระบุ main branch
+                    branches: [[name: '*/main']],
                     userRemoteConfigs: [[
-                        credentialsId: 'Lyz11111', // ระบุ credentials ID ของคุณ
-                        url: 'https://github.com/lightz1890/CSI403/' // ระบุ URL repository ของคุณ
+                        credentialsId: 'Pitchaya22894',
+                        url: ''
                     ]]
                 ])
             }
         }
 
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
-                echo "Building the project..."
-            }
-        }
+                script {
+                    bat 'docker build -t csi403-app-image .'
 
-        stage('Unit Tests') {
-            steps {
-                echo "Running tests..."
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo "Deploying the application..."
-            }
-        }
-
-        stage('Deployment test') {
-            steps {
-                echo "Running tests..."
+                    bat 'docker run -d --name csi-container -p 54100:3000 csi402-app-image:latest'
+                }
             }
         }
     }
